@@ -4,6 +4,7 @@ folderin = "/home/user/tst"
 folderout = "/home/user/out"
 folderext = "/home/user/folder1"
 
+
 def test_step1():
     # test1
     assert checkout(f"cd {folderin};  7z a {folderout}/arx2", "Everything is Ok"), "test1 FAIL"
@@ -35,10 +36,10 @@ def test_step6():
     res2 = checkout(f"ls {folderout}", "arx2.7z")
     assert res1 and res2, "test6 FAIL"
 
+
 def test_step7():
     # test7
     res1 = checkout(f"cd {folderout}; 7z e arx2.7z -o{folderext} -y", "Everything is Ok"), "test7 FAIL"
     res2 = checkout(f"ls {folderext}", "test1.txt")
     res3 = checkout(f"ls {folderext}", "test2.txt")
     assert res1 and res2 and res3, "test7 FAIL"
-
